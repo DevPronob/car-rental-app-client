@@ -32,5 +32,5 @@ The Avis Car Rental website allows users to browse and book a variety of cars ea
 ### Installation Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/avis-car-rental.git
-   cd avis-car-rental/client
+   git clone https://github.com/DevPronob/car-rental-app-client.git
+   cd car-rental-app-client
