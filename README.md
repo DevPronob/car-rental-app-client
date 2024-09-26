@@ -1,72 +1,36 @@
-# Avis - Car Rental Reservation System
+## Project Name
+Avis Car Rental
 
 ## Introduction
-Avis is a comprehensive car rental reservation platform designed to provide an easy and responsive user experience for customers and admins. Customers can browse, book, and manage car rentals, while administrators have powerful tools to oversee inventory, bookings, and returns.
+A user-friendly and responsive car rental reservation platform designed for both customers and administrators.
 
 ## Project Description
-Avis aims to streamline the process of renting cars. Users can explore available cars, review detailed information, and make reservations, while admins manage the cars, bookings, and customer accounts. The platform integrates secure payment processing through AamarPay, allowing users to pay after returning a car. The system features both public pages for general users and protected pages for authenticated users and admins.
+The Avis Car Rental website allows users to browse and book a variety of cars easily. With an intuitive interface, users can manage their reservations while admins have the tools necessary to oversee inventory and bookings effectively.
 
 ## Features
-- **Public Pages**:
-  - Home Page with search functionality, featured cars, and customer reviews.
-  - Car Listing Page with filters for car type, price range, and features.
-  - Car Details Page with high-quality images, pricing, and additional features like insurance and GPS.
-  - About Us Page with company details and contact information.
-  - 404 Error Page with navigation options.
-
-- **User Authentication**:
-  - Sign Up and Login forms with validation, password recovery, and real-time feedback.
-
-- **User Dashboard**:
-  - Manage personal data and view booking history.
-  - Cancel or modify bookings (if allowed) and manage payments.
-
-- **Admin Dashboard**:
-  - Add, update, and delete cars.
-  - Manage customer bookings, returns, and user accounts.
-  - Generate reports on car usage, bookings, and revenue.
-
-- **Booking and Payment**:
-  - Users can search for cars, select additional services, and book directly.
-  - Secure payment processing integrated with AamarPay.
-
-- **Reports**:
-  - Admins can generate reports on car usage and revenue, filter by date ranges, and print reports.
+- **Public Pages**: Home, Car Listing, Car Details, About Us, Error Page
+- **User Authentication**: Sign Up, Sign In
+- **User Dashboard**: Manage user data, booking history
+- **Admin Dashboard**: Manage cars, bookings, users
+- **Car Booking System**: Search, select, and reserve cars
+- **Responsive Design**: Optimized for mobile, tablet, and desktop
+- **Payment System**: Secure payment integration
+- **Theme Switcher**: Dark/light mode options
 
 ## Technology Stack
-- **Frontend**: React, Redux Toolkit, Tailwind CSS
-- **Backend**: Node.js, Express.js, TypeScript
-- **Database**: MongoDB with Mongoose
-- **Authentication**: JSON Web Tokens (JWT)
-- **Payment Gateway**: AamarPay
-- **Deployment**: Vercel (Frontend & Backend)
-- **Other Tools**: TypeScript, AamarPay
+- **Frontend**: React, Redux, Tailwind CSS
+- **Backend**: Node.js, Express, MongoDB
+- **Others**: JWT for authentication, AamarPay for payments
 
 ## Installation Guideline
 
 ### Prerequisites
-- **Node.js** (v14 or higher)
-- **MongoDB Atlas** or local MongoDB instance
-- **AamarPay** account for payment gateway setup
+- Node.js (v14 or above)
+- npm (v6 or above)
+- A MongoDB database (MongoDB Atlas recommended)
 
 ### Installation Steps
-
-1. **Clone the repository**:
+1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/avis-car-rental.git
-   cd avis-car-rental
-
-
-## Configuration
-
-Create a `.env` file in the root directory of the server with the following environment variables:
-
-```env
-PORT=5000
-MONGO_URL=mongodb+srv://username:password@cluster.mongodb.net/avis?retryWrites=true&w=majority
-SALT_ROUND=5
-NODE_ENV=development
-JWT_SECRET=your_jwt_secret
-BASEURL=http://localhost:5173
-STORE_ID=aamarpaytest
-AAMARPAY_KEY=your_aamarpay_key
+   git clone https://github.com/yourusername/avis-car-rental.git
+   cd avis-car-rental/client
