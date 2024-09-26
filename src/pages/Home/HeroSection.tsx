@@ -1,13 +1,14 @@
-import { Button, Row } from 'antd'
-import React, { FormEventHandler } from 'react'
+import { Button } from 'antd'
+
 import Form from '../../components/Form/FormContainer'
 import InputField from '../../components/Form/InputField'
-import { FieldValues } from 'react-hook-form'
+
 import DateField from '../../components/Form/DateField'
 import ContainerLayout from '../../components/Layout/ContainerLayout'
 
 function HeroSection() {
-    const onSubmit = (data) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const onSubmit = (data: any) => {
         console.log(data)
     }
     return (

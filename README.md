@@ -1,30 +1,72 @@
-# React + TypeScript + Vite
+# Avis - Car Rental Reservation System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introduction
+Avis is a comprehensive car rental reservation platform designed to provide an easy and responsive user experience for customers and admins. Customers can browse, book, and manage car rentals, while administrators have powerful tools to oversee inventory, bookings, and returns.
 
-Currently, two official plugins are available:
+## Project Description
+Avis aims to streamline the process of renting cars. Users can explore available cars, review detailed information, and make reservations, while admins manage the cars, bookings, and customer accounts. The platform integrates secure payment processing through AamarPay, allowing users to pay after returning a car. The system features both public pages for general users and protected pages for authenticated users and admins.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- **Public Pages**:
+  - Home Page with search functionality, featured cars, and customer reviews.
+  - Car Listing Page with filters for car type, price range, and features.
+  - Car Details Page with high-quality images, pricing, and additional features like insurance and GPS.
+  - About Us Page with company details and contact information.
+  - 404 Error Page with navigation options.
 
-## Expanding the ESLint configuration
+- **User Authentication**:
+  - Sign Up and Login forms with validation, password recovery, and real-time feedback.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **User Dashboard**:
+  - Manage personal data and view booking history.
+  - Cancel or modify bookings (if allowed) and manage payments.
 
-- Configure the top-level `parserOptions` property like this:
+- **Admin Dashboard**:
+  - Add, update, and delete cars.
+  - Manage customer bookings, returns, and user accounts.
+  - Generate reports on car usage, bookings, and revenue.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- **Booking and Payment**:
+  - Users can search for cars, select additional services, and book directly.
+  - Secure payment processing integrated with AamarPay.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- **Reports**:
+  - Admins can generate reports on car usage and revenue, filter by date ranges, and print reports.
+
+## Technology Stack
+- **Frontend**: React, Redux Toolkit, Tailwind CSS
+- **Backend**: Node.js, Express.js, TypeScript
+- **Database**: MongoDB with Mongoose
+- **Authentication**: JSON Web Tokens (JWT)
+- **Payment Gateway**: AamarPay
+- **Deployment**: Vercel (Frontend & Backend)
+- **Other Tools**: TypeScript, AamarPay
+
+## Installation Guideline
+
+### Prerequisites
+- **Node.js** (v14 or higher)
+- **MongoDB Atlas** or local MongoDB instance
+- **AamarPay** account for payment gateway setup
+
+### Installation Steps
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-repo/avis-car-rental.git
+   cd avis-car-rental
+
+
+## Configuration
+
+Create a `.env` file in the root directory of the server with the following environment variables:
+
+```env
+PORT=5000
+MONGO_URL=mongodb+srv://username:password@cluster.mongodb.net/avis?retryWrites=true&w=majority
+SALT_ROUND=5
+NODE_ENV=development
+JWT_SECRET=your_jwt_secret
+BASEURL=http://localhost:5173
+STORE_ID=aamarpaytest
+AAMARPAY_KEY=your_aamarpay_key

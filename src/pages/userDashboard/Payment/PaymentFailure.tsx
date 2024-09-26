@@ -1,5 +1,5 @@
 // PaymentFailure.tsx
-import React from 'react';
+
 
 const PaymentFailure = () => {
     return (

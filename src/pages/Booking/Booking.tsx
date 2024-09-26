@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { useLocation } from 'react-router-dom';
 import { useGetSingleCarQuery } from '../../redux/features/car/car.api';
 import ContainerLayout from '../../components/Layout/ContainerLayout';

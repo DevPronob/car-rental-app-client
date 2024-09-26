@@ -1,5 +1,5 @@
 import { Button, Table, TableColumnsType } from 'antd'
-import React from 'react'
+
 import { TBooking } from '../../types/booking.type'
 
 import Loading from '../../components/Loading'

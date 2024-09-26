@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useGetMeQuery, useUpdateUserMutation } from '../../redux/features/user/user.api'
 import { Button, Col, Modal, Row } from 'antd'
 import FormContainer from '../../components/Form/FormContainer'

@@ -1,5 +1,5 @@
 // PaymentSuccess.tsx
-import React from 'react';
+
 
 const PaymentSuccess = () => {
     return (

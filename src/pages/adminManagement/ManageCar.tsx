@@ -114,10 +114,10 @@ function ManageCar() {
 
 const AddCar = () => {
     const [createCar] = useCreateCarMutation()
-    const [deletedImages, setDeletedimages] = useState()
+    // const [deletedImages, setDeletedimages] = useState()
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [feature, setFeature] = useState('')
-    const [featured, setFeatured] = useState(false)
+    // const [featured, setFeatured] = useState(false)
     const carAllFeatures = ['Bluetooth', "AC", "Sunroof", "Advanced safety features", "Convertible Roof", "Emergency Control"]
     const carFeatureOptions = carAllFeatures.map((item: string) => {
         return {
@@ -131,6 +131,7 @@ const AddCar = () => {
     const handleCancel = () => {
         setIsModalOpen(false);
     };
+    console.log(feature)
     const handleSubmit: SubmitHandler<FieldValues> = async (data) => {
         const carPostData = {
             name: data.name,
@@ -255,7 +256,7 @@ const AddCar = () => {
 
 
 const UpdateCar = ({ item }: any) => {
-    const [images, setImages] = useState(item.images || []);
+    // const [images, setImages] = useState(item.images || []);
     console.log(item)
     const statusOptation = ['available', 'unavailable'].map((items: string) => {
         return {
@@ -266,7 +267,7 @@ const UpdateCar = ({ item }: any) => {
     const [updateCar] = useUpdateCarMutation()
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [feature, setFeature] = useState('')
-    const [featured, setFeatured] = useState(false)
+    // const [featured, setFeatured] = useState(false)
     const carAllFeatures = ['Bluetooth', "AC", "Sunroof", "Advanced safety features", "Convertible Roof", "Emergency Control"]
     const carFeatureOptions = carAllFeatures.map((item: string) => {
         return {
@@ -274,6 +275,7 @@ const UpdateCar = ({ item }: any) => {
             label: item,
         }
     })
+    console.log(feature)
     const showModal = () => {
         setIsModalOpen(true);
     };
@@ -397,7 +399,7 @@ const UpdateCar = ({ item }: any) => {
                                 )}
                             />
                             {
-                                item?.images?.map((src: string, index: string) => {
+                                item?.images?.map((src: string) => {
                                     return <div className="relative w-36 h-36">
                                         <div className='flex items-center gap-3'>
                                             <img src={src} className="w-full h-full object-cover rounded-md" />

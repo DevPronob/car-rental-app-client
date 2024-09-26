@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { useGetCarsQuery } from '../redux/features/car/car.api';
 import { TCar } from '../types/car.type';
 import PriceFilter from './PriceFilter';

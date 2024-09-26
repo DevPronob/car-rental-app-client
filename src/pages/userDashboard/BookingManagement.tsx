@@ -1,5 +1,5 @@
 import { Button, Table, TableColumnsType } from 'antd'
-import React from 'react'
+
 import { useDeleteBookingMutation, useGetMyBookingQuery } from '../../redux/features/booking/booking.api'
 import toast from 'react-hot-toast'
 import { TBooking } from '../../types/booking.type'

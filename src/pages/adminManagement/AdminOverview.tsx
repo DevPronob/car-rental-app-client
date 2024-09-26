@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { useGetCarsQuery } from '../../redux/features/car/car.api';
 import { useGetBookingQuery } from '../../redux/features/booking/booking.api';
 import { useGetPaymentQuery } from '../../redux/features/payment/payment.api';

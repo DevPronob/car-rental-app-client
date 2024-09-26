@@ -47,6 +47,6 @@ export type TBooking = {
     status: string;
     createdAt: string;
     updatedAt: string;
-    return?: boolean
+    returnCar?: boolean
     __v: number;
 };

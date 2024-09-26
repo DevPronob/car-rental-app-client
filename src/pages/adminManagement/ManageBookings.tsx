@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { useGetBookingQuery, useUpdateBookingMutation } from '../../redux/features/booking/booking.api'
 import { TBooking } from '../../types/booking.type'
 import { Button, Table, TableColumnsType } from 'antd'

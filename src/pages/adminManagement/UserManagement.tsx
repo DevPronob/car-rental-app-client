@@ -1,5 +1,5 @@
 import { Button, Table, TableColumnsType } from 'antd'
-import React from 'react'
+
 import toast from 'react-hot-toast'
 import { TUser } from '../../types/user.type'
 import { useGetusersQuery, useUpdateUserMutation } from '../../redux/features/user/user.api'

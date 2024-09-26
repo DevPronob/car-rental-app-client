@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useGetBookingQuery, useReturnCarBookingMutation } from '../../redux/features/booking/booking.api'
 import { TBooking } from '../../types/booking.type'
 import toast from 'react-hot-toast'

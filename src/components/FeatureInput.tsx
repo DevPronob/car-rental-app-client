@@ -1,21 +1,17 @@
-import React, { useState } from 'react'
-
-type inputProps = {
-    childSeat: number;
-    value: number;
-    max?: number;
-    min?: number
-}
-function FeatureInput({ childSeat, setChildSeat, gps, setGps, mobileWifi, setMobileWifi }) {
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 
-    const increment = (setter, value: number, max: number) => {
+
+function FeatureInput({ childSeat, setChildSeat, gps, setGps, mobileWifi, setMobileWifi }: any) {
+
+
+    const increment = (setter: any, value: number, max: number) => {
         if (value < max) {
             setter(value + 1);
         }
     };
 
-    const decrement = (setter, value: number, min: number) => {
+    const decrement = (setter: any, value: number, min: number) => {
         if (value > min) {
             setter(value - 1);
         }

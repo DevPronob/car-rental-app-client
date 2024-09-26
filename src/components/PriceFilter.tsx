@@ -1,5 +1,5 @@
 import Slider from 'rc-slider';
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import 'rc-slider/assets/index.css';
 
 interface PriceFilterProps {

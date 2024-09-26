@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import ContainerLayout from '../../components/Layout/ContainerLayout'
 import ReactImageMagnifier from 'simple-image-magnifier/react'
@@ -62,13 +62,13 @@ function CarDetail() {
                         </div>
                         <div className='flex flex-row gap-2'>
                             <div className='flex flex-col gap-2'>
-                                {carData?.data?.images.map((src: string | undefined, i: string | undefined | SetStateAction<number>) => (
+                                {carData?.data?.images.map((src: string | undefined, i: number) => (
                                     <img
                                         key={'preview-' + i}
                                         src={src}
                                         alt=''
                                         className='object-cover w-16 h-16 rounded cursor-pointer'
-                                        onClick={() => setImgActive(i)}
+                                        onClick={() => setImgActive(i)} // No TypeScript error here
                                     />
                                 ))}
                             </div>

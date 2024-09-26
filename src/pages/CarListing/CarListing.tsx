@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ContainerLayout from '../../components/Layout/ContainerLayout';
 import { useGetCarsQuery } from '../../redux/features/car/car.api';
 import { TCar } from '../../types/car.type';

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 import { useAppSelector } from '../../redux/hooks';
 import { logout, useCurrentToken } from '../../redux/features/auth/authSlice';
 import { verifyToken } from '../../utilits/VerifyToken';
@@ -7,7 +7,8 @@ import { useDispatch } from 'react-redux';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function ProctectedRoute({ children, role }: { children: ReactNode, role: string | undefined }) {
-    let user;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let user: any;
     const dispatch = useDispatch()
     const token = useAppSelector(useCurrentToken);
     if (token) {
