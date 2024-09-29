@@ -49,16 +49,16 @@ function PaymentManagement() {
                 }
             }
         })
-        // const updateData = {
-        //     id
-        // }
-        // try {
-        //     const res = await updateBooking(updateData)
-        //     console.log(res)
-        //     toast.success('booking deleted successfull')
-        // } catch (error) {
-        //     toast.error('something went wrong')
-        // }
+        const updateData = {
+            id
+        }
+        try {
+            const res = await updateBooking(updateData)
+            console.log(res)
+            toast.success('booking deleted successfull')
+        } catch (error) {
+            toast.error('something went wrong')
+        }
     }
 
     const columns: TableColumnsType<TBooking> = [
