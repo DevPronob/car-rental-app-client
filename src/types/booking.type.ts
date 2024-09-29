@@ -47,6 +47,9 @@ export type TBooking = {
     status: string;
     createdAt: string;
     updatedAt: string;
-    returnCar?: boolean
+    returnCar?: boolean;
+    payment: boolean;
+    userEmail: string;
+    userName: string;
     __v: number;
 };

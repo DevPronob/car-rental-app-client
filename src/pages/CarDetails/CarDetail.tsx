@@ -51,14 +51,14 @@ function CarDetail() {
     }
     console.log(carData)
     return (
-        <div className=''>
+        <div className='dark:bg-[#141D2E] text-white'>
             <ContainerLayout>
                 <div className=' grid grid-cols-1 lg:grid-cols-[70%_30%] gap-4  justify-center'>
                     <div>
                         <div className='flex items-center justify-between pr-7'>
-                            <h2 className='text-4xl font-bold pb-6'>Tesla Model S</h2>
+                            <h2 className='text-4xl font-bold pb-6 text-black dark:text-white'>{carData?.data.name}</h2>
 
-                            <p className='text-2xl font-bold'>Price Per Hour <span className='text-blue-800'>${carData?.data.pricePerHour}</span></p>
+                            <p className='text-2xl font-bold text-black dark:text-white'>Price Per Hour <span className='text-blue-800'>{carData?.data.pricePerHour} BDT</span></p>
                         </div>
                         <div className='flex flex-row gap-2'>
                             <div className='flex flex-col gap-2'>
@@ -81,9 +81,9 @@ function CarDetail() {
                                 className=''
                             />
                         </div>
-                        <div className='py-6'>
+                        <div className='py-6 text-black dark:text-white'>
                             <h2 className='text-4xl font-bold my-2'>Vehicle overview</h2>
-                            <p>This is a discontinued but undeniably head-turning black hybrid sports car with a futuristic design. It combines the power of a gasoline engine with the efficiency of an electric motor, resulting in a thrilling driving experience. While specific features aren't extensively listed, it does mention a convertible roof, adding to the sporty appeal. This car is also unavailable as it is marked as deleted.</p>
+                            <p>{carData?.data.description}</p>
                             <div>
                                 <h3 className='text-2xl py-4 font-bold'>Features</h3>
                                 <div className=''>
@@ -107,7 +107,7 @@ function CarDetail() {
 
                     </div>
                     <div>
-                        <div className='shadow-lg p-8 mt-14'>
+                        <div className='shadow-lg p-8 mt-14 text-black dark:text-white'>
                             <div className='flex items-center justify-between py-2'><p className='font-light'>color</p> <p className='font-bold'>{carData?.data.color}</p></div>
                             <hr />
                             <div className='flex items-center justify-between py-2'><p className='font-light'>Transmission</p> <p className='font-bold'>Automatic</p></div>

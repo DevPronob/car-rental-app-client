@@ -51,40 +51,58 @@ function UserManagement() {
             title: 'Name',
             dataIndex: 'name',
             showSorterTooltip: { target: 'full-header' },
+            responsive: ['xs', 'sm', 'md', 'lg'],
 
         },
         {
             title: 'Email',
             dataIndex: 'email',
+            responsive: ['xs', 'sm', 'md', 'lg'],
+
         },
         {
             title: 'Role',
             dataIndex: 'role',
+            responsive: ['xs', 'sm', 'md', 'lg'],
+
         },
         {
             title: 'Phone',
             dataIndex: 'phone',
+            responsive: ['xs', 'sm', 'md', 'lg'],
+
         },
         {
             title: 'Address',
             dataIndex: 'address',
+            responsive: ['xs', 'sm', 'md', 'lg'],
+
         },
         {
             title: 'Status',
             dataIndex: 'status',
+            responsive: ['xs', 'sm', 'md', 'lg'],
+
         },
         {
             title: 'Action',
             render: (item) => {
+                console.log(item, "itemmm")
                 return (
-                    <div className='flex gap-2'>
+                    <div className='flex gap-4'>
+                        {
+                            item?.status == 'active' ? <Button onClick={() => handleStatus(item.key, 'blocked')}>Block User</Button>
+                                : <Button onClick={() => handleStatus(item.key, 'active')}>Active User</Button>
+                        }
 
-                        <Button onClick={() => handleStatus(item.key, 'blocked')}>Block User</Button>
-                        <Button onClick={() => handleStatus(item.key, 'active')}>Active User</Button>
-                        <Button onClick={() => handleRole(item.key, 'admin')}>make Admin</Button>
+
+                        {
+                            item.role == 'admin' ? <p className='text-[14px] text-blue-700 font-bold'>Admin</p> : <Button onClick={() => handleRole(item.key, 'admin')}>make Admin</Button>
+                        }
                     </div>
                 )
-            }
+            },
+            responsive: ['xs', 'sm', 'md', 'lg'],
         },
     ];
     return (
@@ -93,6 +111,7 @@ function UserManagement() {
                 columns={columns}
                 style={{ width: '100%' }}
                 dataSource={tableData}
+                pagination={false}
                 showSorterTooltip={{ target: 'sorter-icon' }}
             />
         </div>

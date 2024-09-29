@@ -19,7 +19,7 @@ function TextAreaField({ name, label, defaultValue }: { name: string; label: str
                             validateStatus={errorMessage ? 'error' : ''}
                             help={errorMessage as React.ReactNode} // Cast the message to ReactNode
                         >
-                            <TextArea defaultValue={defaultValue} showCount maxLength={100} placeholder="Write Here" />
+                            <TextArea defaultValue={defaultValue} showCount maxLength={1000} placeholder="Write Here" />
                         </Form.Item>
                     )}
                     name={name}

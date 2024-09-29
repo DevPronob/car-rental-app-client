@@ -25,9 +25,9 @@ export type TQueryParam = {
 
 export type TCarQueryParams = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    minPrice?: any;
+    minPrice?: number;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    maxPrice?: any;
+    maxPrice?: number;
     color?: string;
     searchTerm?: string;
     type?: string;

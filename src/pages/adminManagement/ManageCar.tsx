@@ -68,18 +68,22 @@ function ManageCar() {
                 title: 'Name',
                 dataIndex: 'name',
                 showSorterTooltip: { target: 'full-header' },
+                responsive: ['xs', 'sm', 'md', 'lg'],
             },
             {
                 title: 'Year',
                 dataIndex: 'year',
+                responsive: ['xs', 'sm', 'md', 'lg'],
             },
             {
                 title: 'Price Per Hour',
                 dataIndex: 'pricePerHour',
+                responsive: ['xs', 'sm', 'md', 'lg'],
             },
             {
                 title: 'Model',
                 dataIndex: 'model',
+                responsive: ['xs', 'sm', 'md', 'lg'],
             },
             {
                 title: 'Action',
@@ -91,6 +95,7 @@ function ManageCar() {
                         </div>
                     );
                 },
+                responsive: ['xs', 'sm', 'md', 'lg'],
             },
         ];
     return (
@@ -155,6 +160,7 @@ const AddCar = () => {
         try {
             const res = await createCar(formData).unwrap()
             console.log(res)
+            toast.success("Car Created Successfull")
         } catch (error) {
             console.log(error)
         }
@@ -283,7 +289,9 @@ const UpdateCar = ({ item }: any) => {
         setIsModalOpen(false);
     };
     const handleSubmit: SubmitHandler<FieldValues> = async (data) => {
-        const toastId = toast.loading('Updating in');
+        const toastId = toast.loading('Updating in progress');
+
+        // Construct the data object with relevant fields
         const carPostData = {
             id: item.key,
             name: data.name,
@@ -296,37 +304,53 @@ const UpdateCar = ({ item }: any) => {
             type: data.model,
             year: data.year
         };
-        console.log(carPostData)
-        // const updateData: Record<string, any> = {}
+
+        console.log(carPostData);
+
+        // Filter out undefined or null fields
+        // const updateData: Record<string, any> = {};
+
         // Object.keys(carPostData).forEach((key) => {
         //     if (data[key] !== undefined && data[key] !== null) {
         //         updateData[key] = data[key];
         //     }
         // });
-        // console.log(updateData, "updateData before appending to FormData");
+
+
+        // console.log(updateData);
+
+
         // const formData = new FormData();
-        // formData.append('data', JSON.stringify(updateData));
+        // if (updateData) {
+        //     formData.append('data', JSON.stringify(updateData));
+        // }
+        // // Append JSON data as a string
 
-
+        // // Append files if they exist
         // if (data.images !== undefined) {
         //     data.images.forEach((file: File) => formData.append('files', file));
         // }
-        // console.log(formData)
+
         // console.log("FormData before submission:", Array.from(formData.entries()));
-        const updateData = {
+        const dataForm = {
             carPostData,
             images: data.images
         }
         try {
-            const res = await updateCar(updateData)
-            if (res?.data.success) {
-                toast.success("Car Updated", { id: toastId, duration: 2000 })
-            }
+            // Send FormData to the API (ensure the API is set up to handle multipart/form-data)
+            const res = await updateCar(dataForm); // Use formData instead of updatedData
             console.log(res)
+
+            if (res?.data.success) {
+                toast.success("Car Updated", { id: toastId, duration: 2000 });
+            }
+
+            console.log(res);
         } catch (error) {
-            console.log(error)
+            toast.error("Failed to update car", { id: toastId });
+            console.log(error);
         }
-    }
+    };
 
 
 
@@ -334,7 +358,7 @@ const UpdateCar = ({ item }: any) => {
         <>
             <Button onClick={showModal}>Update Car</Button>
             <Modal
-                title="Add Car"
+                title="Update Car"
                 open={isModalOpen}
                 onCancel={handleCancel}
                 footer={null}

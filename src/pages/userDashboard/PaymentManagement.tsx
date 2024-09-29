@@ -17,8 +17,7 @@ function PaymentManagement() {
     if (isLoading) {
         return <Loading />
     }
-    console.log(bookingData?.data.status, "bookingData")
-    const tableData = bookingData?.data?.map(({ _id, user, customerDetails, pickUpLocation, returnCar, status, car, date, startTime, totalCost, endTime, costWithFeature }: TBooking) => ({
+    const tableData = bookingData?.data?.map(({ _id, user, customerDetails, payment, pickUpLocation, returnCar, status, car, date, startTime, totalCost, endTime, costWithFeature }: TBooking) => ({
         key: _id,
         userName: customerDetails?.name,
         userEmail: customerDetails?.email,
@@ -27,7 +26,7 @@ function PaymentManagement() {
         car,
         date,
         startTime,
-
+        payment,
         pickUpLocation,
         endTime,
         totalCost,
@@ -90,11 +89,21 @@ function PaymentManagement() {
             dataIndex: 'status',
         },
         {
+            title: 'Payment',
+            dataIndex: 'payment',
+        },
+        {
             title: 'Action',
             render: (item) => {
+                console.log(item?.returnCar, "item?.returnCar")
                 return (
                     <div className='flex gap-2'>
-                        <Button disabled={item?.returnCar ? false : true} onClick={() => handlePayment(item)}>Pay</Button>
+                        {
+                            item.payment ?
+                                <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Paid</button>
+                                :
+                                <Button disabled={(item?.returnCar == true ? false : true)} onClick={() => handlePayment(item)}>Pay</Button>
+                        }
                     </div>
                 )
             }

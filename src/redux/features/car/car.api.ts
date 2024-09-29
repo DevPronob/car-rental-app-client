@@ -1,11 +1,13 @@
-import { TCar } from "../../../types/car.type";
-import { TQueryParam, TResponseRedux } from "../../../types/global";
+/* eslint-disable prefer-const */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// import { TCar } from "../../../types/car.type";
+import { TResponseRedux } from "../../../types/global";
 import { baseApi } from "../../api/baseApi";
 
 const carApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
         getCars: builder.query({
-            query: (args?: TQueryParam[]) => {
+            query: (args?: any) => {
                 console.log(args)
                 // const params = new URLSearchParams();
                 // if (args) {
@@ -19,7 +21,7 @@ const carApi = baseApi.injectEndpoints({
                     params: args,
                 }
             },
-            transformResponse: (response: TResponseRedux<TCar>) => {
+            transformResponse: (response: TResponseRedux<any>) => {
                 return {
                     data: response.data,
                     meta: response.meta,
@@ -56,16 +58,15 @@ const carApi = baseApi.injectEndpoints({
             invalidatesTags: ['car'],
         }),
         updateCar: builder.mutation({
-            query: ({ id, ...body }) => {
-                console.log(id, body, "body");
+            query: (args) => {
+                console.log(args, "body");
 
-                const { carPostData, images } = body; // Assuming you have data and images in body
 
-                // eslint-disable-next-line prefer-const
+                // // eslint-disable-next-line prefer-const, prefer-const
                 let updateData: Record<string, unknown> = {}
-                Object.keys(carPostData).forEach((key) => {
-                    if (carPostData[key] !== undefined && carPostData[key] !== null && !Number.isNaN(carPostData[key])) {
-                        updateData[key] = carPostData[key];
+                Object.keys(args.carPostData).forEach((key) => {
+                    if (args.carPostData[key] !== undefined && args.carPostData[key] !== null && !Number.isNaN(args.carPostData[key])) {
+                        updateData[key] = args.carPostData[key];
                     }
                 });
                 console.log(updateData, "updateData before appending to FormData");
@@ -73,13 +74,14 @@ const carApi = baseApi.injectEndpoints({
                 formData.append('data', JSON.stringify(updateData));
 
                 // Append image files if they exist
-                if (images && images.length > 0) {
-                    images.forEach((file: File) => formData.append('images', file));
+                if (args.images && args.images.length > 0) {
+                    args.images.forEach((file: File) => formData.append('files', file));
                 }
-                console.log(formData, "carPostData")
+                console.log(formData.entries(), "carPostData")
+                // console.log(carPostData, images, "images")
 
                 return {
-                    url: `/cars/${carPostData.id}`,
+                    url: `/cars/${args?.carPostData.id}`,
                     method: 'PUT',
                     body: formData, // Pass formData as body
                 };

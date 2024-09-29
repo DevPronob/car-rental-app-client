@@ -61,7 +61,7 @@ const bookingApi = baseApi.injectEndpoints({
                     params: args,
                 }
             },
-            invalidatesTags: ['booking']
+            invalidatesTags: ['booking'],
         }),
     })
 })

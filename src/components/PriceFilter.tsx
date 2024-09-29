@@ -31,7 +31,7 @@ function PriceFilter({ minPrice, maxPrice, onPriceChange }: PriceFilterProps) {
                 onChange={handlePriceChange}
                 allowCross={false}
             />
-            <div className="price-values">
+            <div className="price-values text-black dark:text-white">
                 <span>${priceRange[0]}</span> - <span>${priceRange[1]}</span>
             </div>
         </div>

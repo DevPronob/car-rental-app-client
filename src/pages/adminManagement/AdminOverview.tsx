@@ -54,7 +54,7 @@ function AdminOverview() {
                     </p>
                     <div className="py-3">
                         <p className="text-xl">Revenue</p>
-                        <p className="text-2xl">{paymentData?.data || 0}</p>
+                        <p className="text-2xl">{Math.floor(paymentData?.data || 0)}</p>
                     </div>
                 </div>
             </div>

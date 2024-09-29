@@ -18,7 +18,18 @@ const paymentApi = baseApi.injectEndpoints({
 
         }),
 
+        getMyPayment: builder.query({
+            query: (args) => {
+                console.log(args, "aegs")
+                return {
+                    url: `/payment/my-payment/${args}`,
+                    method: 'GET',
+                }
+            },
+
+        }),
+
     })
 })
 
-export const { useCreatePaymentMutation, useGetPaymentQuery } = paymentApi
+export const { useCreatePaymentMutation, useGetMyPaymentQuery, useGetPaymentQuery } = paymentApi

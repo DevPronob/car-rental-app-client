@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { logout, selectCurrentUser, useCurrentToken } from '../../redux/features/auth/authSlice';
 import { Button } from 'antd';
+import { IoMoon } from "react-icons/io5";
+import { IoSunny } from "react-icons/io5";
+
 
 function Navbar() {
     const [open, setOpen] = useState(false);
@@ -18,10 +21,15 @@ function Navbar() {
     const handleLogout = () => {
         dispatch(logout())
     }
+    const [dark, setDark] = useState(false);
+    const darkModeHandler = () => {
+        setDark(!dark);
+        document.body.classList.toggle("dark");
+    }
 
     return (
         <div>
-            <nav className="bg-white border-gray-200 dark:bg-gray-900">
+            <nav className="bg-white border-gray-200 dark:bg-gray-900 py-5">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
                         <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" />
@@ -66,6 +74,19 @@ function Navbar() {
                                     </li>
                                     : ""
                             }
+                            <li>
+                                <button onClick={() => darkModeHandler()}>
+                                    {
+
+                                        dark && <IoSunny />
+                                    }
+                                    {
+                                        !dark && <IoMoon />
+                                    }
+                                </button>
+                            </li>
+
+
                         </ul>
                     </div>
                 </div>

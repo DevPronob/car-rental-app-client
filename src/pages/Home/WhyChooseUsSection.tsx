@@ -4,7 +4,7 @@ import ContainerLayout from "../../components/Layout/ContainerLayout";
 
 function WhyChooseUsSection() {
     return (
-        <div className="bg-blue-700 text-white py-12 my-8">
+        <div className="bg-blue-700 text-white dark:bg-[#141D2E] text-white py-12 py-8">
             <ContainerLayout>
                 <div className="text-center py-10">
                     <h1 className="text-3xl font-bold mb-3">Why Choose Us</h1>

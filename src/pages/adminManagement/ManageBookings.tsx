@@ -44,28 +44,35 @@ function ManageBookings() {
             title: 'Name',
             dataIndex: 'userName',
             showSorterTooltip: { target: 'full-header' },
+            responsive: ['xs', 'sm', 'md', 'lg'],
 
         },
         {
             title: 'email',
             dataIndex: 'userEmail',
+            responsive: ['xs', 'sm', 'md', 'lg'],
         },
         {
             title: 'Total Cost',
             dataIndex: 'costWithFeature',
+            responsive: ['xs', 'sm', 'md', 'lg'],
         },
         {
             title: 'Car Name',
             dataIndex: 'carname',
+            responsive: ['xs', 'sm', 'md', 'lg'],
         },
         {
             title: 'Date',
             dataIndex: 'date',
+            responsive: ['xs', 'sm', 'md', 'lg'],
         },
         {
             title: 'Status',
             dataIndex: 'status',
+            responsive: ['xs', 'sm', 'md', 'lg'],
         },
+
         {
             title: 'Action',
             render: (item) => {
@@ -76,7 +83,8 @@ function ManageBookings() {
                         <Button onClick={() => handleStatus(item.key, 'cancelled')}>cancelled</Button>
                     </div>
                 )
-            }
+            },
+            responsive: ['xs', 'sm', 'md', 'lg'],
         },
     ];
     if (isLoading) {

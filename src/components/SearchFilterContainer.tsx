@@ -43,13 +43,13 @@ function SearchFilterContainer({ setSearch, setSort, setPriceRange, setModel }: 
                 </div>
 
                 <div className="flex flex-col">
-                    <h3 className="text-xl font-semibold p-2">Color</h3>
+                    <h3 className="text-xl font-semibold p-2 text-black dark:text-white">Color</h3>
                     <hr />
                     <div>
                         {uniqueColor.map((color, index) => (
                             <p
                                 key={index}
-                                className="text-base hover:text-[#2f21f1] cursor-pointer font-light p-"
+                                className="text-base hover:text-[#2f21f1] cursor-pointer font-light p-3 text-black dark:text-white"
                                 onClick={() => setSort(color)}
                             >
                                 {color}
@@ -59,13 +59,13 @@ function SearchFilterContainer({ setSearch, setSort, setPriceRange, setModel }: 
                 </div>
 
                 <div className="flex flex-col">
-                    <h3 className="text-xl font-semibold p-2">Model</h3>
+                    <h3 className="text-xl font-semibold p-2 text-black dark:text-white">Model</h3>
                     <hr />
                     <div>
                         {uniqueType.map((type, index) => (
                             <p
                                 key={index}
-                                className="text-base hover:text-[#2f21f1] cursor-pointer font-light p-3"
+                                className="text-base hover:text-[#2f21f1] cursor-pointer font-light p-3 text-black dark:text-white"
                                 onClick={() => setModel(type)}
                             >
                                 {type}

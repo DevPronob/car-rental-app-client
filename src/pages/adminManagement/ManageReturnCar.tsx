@@ -12,10 +12,13 @@ import Loading from '../../components/Loading'
 function ManageReturnCar() {
     const { data: bookingData, isLoading } = useGetBookingQuery(undefined)
 
+    console.log("totalData", bookingData)
     // const [updateBooking] = useUpdateBookingMutation()
-    const tableData = bookingData?.data?.map(({ _id, user, status, totalCost, car, date, startTime, endTime, costWithFeature }: TBooking) => ({
+    const tableData = bookingData?.data?.map(({ _id, user, returnCar, status, totalCost, car, date, startTime, endTime, costWithFeature, customerDetails }: TBooking) => ({
         key: _id,
+        customerDetails,
         userName: user?.name,
+        buyerName: customerDetails?.name,
         userEmail: user?.email,
         carname: car?.name,
         date,
@@ -26,9 +29,10 @@ function ManageReturnCar() {
         pricePerHour: car?.pricePerHour,
         user,
         status,
-        totalCost
+        totalCost: Math.floor(totalCost),
+        returnCar
     }))
-    console.log(tableData)
+    console.log(tableData, "tableData")
 
     if (isLoading) {
         return <Loading />
@@ -55,43 +59,53 @@ function ManageReturnCar() {
             title: 'Car name',
             dataIndex: 'carname',
             showSorterTooltip: { target: 'full-header' },
+            responsive: ['xs', 'sm', 'md', 'lg'],
 
         },
         {
             title: 'End Time',
             dataIndex: 'endTime',
+            responsive: ['xs', 'sm', 'md', 'lg'],
         },
         {
             title: 'Cost with Features',
             dataIndex: 'costWithFeature',
+            responsive: ['xs', 'sm', 'md', 'lg'],
         },
         {
             title: 'Start Time',
             dataIndex: 'startTime',
+            responsive: ['xs', 'sm', 'md', 'lg'],
         },
         {
             title: 'Total Cost',
             dataIndex: 'totalCost',
+            responsive: ['xs', 'sm', 'md', 'lg'],
         },
         {
             title: 'Date',
             dataIndex: 'date',
+            responsive: ['xs', 'sm', 'md', 'lg'],
         },
         {
             title: 'Status',
             dataIndex: 'status',
+            responsive: ['xs', 'sm', 'md', 'lg'],
         },
         {
             title: 'Booked By',
-            dataIndex: 'userName',
+            dataIndex: 'buyerName',
+            responsive: ['xs', 'sm', 'md', 'lg'],
         },
         {
             title: 'Action',
             render: (item) => {
                 return (
                     <div className='flex gap-2'>
+                        {
+                            item.returnCar ? "Car Already Returned" : <ReturnedCar item={item} />
+                        }
 
-                        <ReturnedCar item={item} />
                     </div>
                 )
             }
@@ -138,7 +152,7 @@ const ReturnedCar = ({ item }: any) => {
         <>
             <Button onClick={showModal}>Return Car</Button>
             <Modal
-                title="Add Car"
+                title="Return Car"
                 open={isModalOpen}
                 onCancel={handleCancel}
                 footer={null}

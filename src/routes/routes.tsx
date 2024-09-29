@@ -23,6 +23,7 @@ import PaymentSuccess from '../pages/userDashboard/Payment/PaymentSuccess';
 import PaymentFailure from '../pages/userDashboard/Payment/PaymentFailure';
 import Callback from '../pages/userDashboard/Payment/Callback';
 import ChangePassword from '../pages/Auth/ChangePassword';
+import NotFound from '../components/NotFound';
 
 export const router = createBrowserRouter([
     {
@@ -52,6 +53,10 @@ export const router = createBrowserRouter([
             {
                 path: '/sign-up',
                 element: <Signup />,
+            },
+            {
+                path: '*',
+                element: <NotFound />,
             },
             {
                 path: '/booking',

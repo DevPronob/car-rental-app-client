@@ -14,29 +14,38 @@ function UserOverview() {
     }
     console.log(meData)
     return (
-        <div>
+        <div className="flex justify-center items-center min-h-screen bg-gray-50">
             <div className="m-10 max-w-sm">
-                <div className="rounded-lg border bg-white px-4 pt-8 pb-10 shadow-lg">
-                    <h1 className="my-1 text-center text-xl font-bold leading-8 text-gray-900">{meData?.data.name}</h1>
-                    <h3 className="font-lg text-semibold text-center leading-6 text-gray-600"><span className=' font-bold'>Email </span>{meData?.data.email}</h3>
-                    <p className="text-center text-sm leading-6 text-gray-500 hover:text-gray-600"><span className=' font-bold'>Address </span>{meData?.data.address ? meData?.data.address : "No data"}</p>
-                    <div className='flex items-center justify-center mt-3'>
-                        <UpdateCar item={meData?.data} />
+                <div className="rounded-lg border bg-white shadow-lg transition-transform transform hover:scale-105">
+                    <div className="px-6 pt-8 pb-10">
+                        <h1 className="my-1 text-center text-2xl font-extrabold text-gray-900">{meData?.data.name}</h1>
+                        <h3 className="mt-2 text-lg font-semibold text-center text-gray-700">
+                            <span className="font-bold">Email:</span> {meData?.data.email}
+                        </h3>
+                        <p className="mt-1 text-center text-sm text-gray-500 hover:text-gray-700">
+                            <span className="font-bold">Address:</span> {meData?.data.address ? meData?.data.address : "No data"}
+                        </p>
+                        <div className="flex items-center justify-center mt-6">
+                            <UpdateCar item={meData?.data} />
+                        </div>
+                        {/* Uncomment this section if you want to display additional info */}
+                        {/* <ul className="mt-3 divide-y rounded bg-gray-100 py-2 text-gray-600 shadow-sm">
+                    <li className="flex items-center py-3 text-sm">
+                        <span>Status</span>
+                        <span className="ml-auto">
+                            <span className="rounded-full bg-green-200 py-1 px-2 text-xs font-medium text-green-700">Open for side gigs</span>
+                        </span>
+                    </li>
+                    <li className="flex items-center py-3 text-sm">
+                        <span>Joined On</span>
+                        <span className="ml-auto">Apr 08, 2022</span>
+                    </li>
+                </ul> */}
                     </div>
-                    {/* <ul className="mt-3 divide-y rounded bg-gray-100 py-2 px-3 text-gray-600 shadow-sm hover:text-gray-700 hover:shadow">
-                        <li className="flex items-center py-3 text-sm">
-                            <span>Status</span>
-                            <span className="ml-auto"><span className="rounded-full bg-green-200 py-1 px-2 text-xs font-medium text-green-700">Open for side gigs</span></span>
-                        </li>
-                        <li className="flex items-center py-3 text-sm">
-                            <span>Joined On</span>
-                            <span className="ml-auto">Apr 08, 2022</span>
-                        </li>
-                    </ul> */}
                 </div>
             </div>
-
         </div>
+
     )
 }
 
@@ -105,16 +114,22 @@ const UpdateCar = ({ item }: any) => {
                 footer={null}
             >
                 <FormContainer onSubmit={handleSubmit} width={'100%'}>
-                    <Row gutter={16}>
-                        <Col span={16}>
+                    <Row gutter={24}>
+
+                        <Col span={24}>
                             <InputField defaultValue={item?.name} type={'text'} name={'name'} label='Name' />
                         </Col>
-                        <Col span={16}>
+
+
+                        <Col span={24}>
                             <InputField defaultValue={item?.email} type={'text'} name={'email'} label={'Email'} />
                         </Col>
-                        <Col span={16}>
+
+
+                        <Col span={24}>
                             <InputField defaultValue={item?.address ? item?.address : "no data"} type={'text'} name={'address'} label={'Address'} />
                         </Col>
+
                     </Row>
                     <Button htmlType="submit" style={{ marginTop: '16px' }}>Submit</Button>
                 </FormContainer>

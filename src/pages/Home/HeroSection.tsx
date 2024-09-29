@@ -1,15 +1,27 @@
 import { Button } from 'antd'
 
-import Form from '../../components/Form/FormContainer'
+// import Form from '../../components/Form/FormContainer'
 import InputField from '../../components/Form/InputField'
 
 import DateField from '../../components/Form/DateField'
 import ContainerLayout from '../../components/Layout/ContainerLayout'
+// import { useNavigate } from 'react-router-dom'
+import FormContainer from '../../components/Form/FormContainer'
+// import moment from 'moment'
+import { useNavigate } from 'react-router-dom'
+
 
 function HeroSection() {
+
+    const navigate = useNavigate()
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const onSubmit = (data: any) => {
-        console.log(data)
+        console.log(data['location '])
+        // const dateFormat = new Date(moment(data['date ']).format('YYYY-MM-D'))
+        // console.log(dateFormat)
+        const queryParams = new URLSearchParams({ location: data['location '], date: data['date '] }).toString();
+        navigate(`/car-listing?${queryParams}`);
+
     }
     return (
         <div className='bg-hero h-full bg-cover bg-center h-screen'>
@@ -23,11 +35,11 @@ function HeroSection() {
                         <div className='bg-white rounded-md  w-full'>
 
                             <div className='p-8 '>
-                                <Form width='100%' onSubmit={onSubmit}>
+                                <FormContainer width='100%' onSubmit={onSubmit}>
                                     <InputField type="text" name="location " label="location" />
                                     <DateField name="date " label="Date" />
                                     <Button className='bg-blue-700 text-white w-full p-5' htmlType='submit'>Submit</Button>
-                                </Form>
+                                </FormContainer>
                             </div>
 
 

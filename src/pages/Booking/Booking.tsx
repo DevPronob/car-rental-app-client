@@ -18,8 +18,8 @@ function Booking() {
     console.log(state)
     const { data: carData } = useGetSingleCarQuery((state.carId) as string)
     const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-        const date = new Date(moment(data.date).format())
-        const formattedDate = date.toISOString().slice(0, 10);
+        const formattedDate = moment(new Date(data.date)).format('YYYY-MM-DD');
+        console.log(formattedDate, data.date, "dateee")
         const startTime = moment(new Date(data.startTime)).format('HH:mm')
         console.log()
         const bookingInfo = {
@@ -52,7 +52,7 @@ function Booking() {
         console.log(data)
     }
     return (
-        <div>
+        <div className='dark:bg-[#141D2E] text-white'>
             <ContainerLayout>
                 <div >
                     {
@@ -64,17 +64,17 @@ function Booking() {
                                         <p className="text-gray-600 pt-2"> Total Price: ${state.totalPrice}</p>
                                         <p className="text-blue-800 font-bold text-xl">Selected Features:</p>
 
-                                        {state.childSeat && <p className='flex items-center gap-2 py-1'><span className=' text-blue-800'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                        {state.childSeat && <p className='flex items-center gap-2 py-1 text-black dark:text-white'><span className=' text-blue-800'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                         </svg>
 
                                         </span> Child Seat</p>}
-                                        {state.gps && <p className='flex items-center gap-2 py-1'> <span className=' text-blue-800'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                        {state.gps && <p className='flex items-center gap-2 py-1 text-black dark:text-white'> <span className=' text-blue-800'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                         </svg>
 
                                         </span>GPS</p>}
-                                        {state.mobileWifi && <p className='flex items-center gap-2 py-1'> <span className=' text-blue-800'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                        {state.mobileWifi && <p className='flex items-center gap-2 py-1 text-black dark:text-white'> <span className=' text-blue-800'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                         </svg>
 
