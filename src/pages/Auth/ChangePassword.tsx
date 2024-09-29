@@ -17,6 +17,7 @@ function ChangePassword() {
     const onSubmit: SubmitHandler<FieldValues> = async (data) => {
         const toastId = toast.loading('Updating in');
         console.log(data)
+        //j
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const res = (await changePassword(data)) as TResponse<any>;
         if (res?.data?.success) {
